@@ -1,5 +1,13 @@
-name: CI
-on: push
+# Sample workflow to access AWS resources when workflow is tied to branch
+# The workflow Creates static website using aws s3
+name: Deploy Infrastructure
+on: pull_request
+env:
+  AWS_REGION: "eu-west-1"
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   test:
@@ -17,3 +25,33 @@ jobs:
       - run: yarn l build
       - run: yarn l lint
       - run: yarn l test
+
+  deploy-services:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [webapp]
+
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v1
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          role-to-assume: arn:aws:iam::322567890963:role/github-ci-role
+          aws-region: ${{ env.AWS_REGION }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - run: yarn install
+
+      - name: Synth services stack ${{ matrix.service }}
+        run: yarn --cwd packages/services/${{ matrix.service }} cdk synth
+
+      - name: Deploy services stack ${{ matrix.service }}
+        run: yarn --cwd packages/services/${{ matrix.service }} cdk deploy --require-approval never
+
+    needs: [test]
