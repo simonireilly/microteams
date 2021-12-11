@@ -33,7 +33,7 @@ jobs:
       - run: yarn install
 
       - name: Synth stack
-        run: yarn --cwd packages/bootstrap synth
+        run: yarn --cwd packages/bootstrap cdk synth
 
       - name: Deploy stack
-        run: yarn --cwd packages/bootstrap deploy --require-approval never
+        run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
