@@ -2,6 +2,8 @@
 
 **Bootstrapping your organisation for delivery on AWS**
 
+>Find the git book version here: https://app.gitbook.com/s/PTLidBS6Vrblh1f6EYpk/
+
 Micro-teams is a repo that highlights the organizational structure benefits of using the aws-cdk to ship components or services, on top of shared infrastructure such as event streams. It also provides account level formatting functionality through the AWS CDK, to keep a single typescript tool chain and encourage cross team communication.
 
 - [Micro Teams](#micro-teams)
