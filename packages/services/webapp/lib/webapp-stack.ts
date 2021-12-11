@@ -57,7 +57,6 @@ export class WebappStack extends Stack {
     });
 
     const dashboard = new Dashboard(this, 'MainDashboard', {
-      dashboardName: 'Main-Dashboard',
       periodOverride: PeriodOverride.AUTO,
       widgets: [[alarmWidget]],
     });

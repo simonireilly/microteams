@@ -4,11 +4,11 @@
   "bin": {
     "webapp": "bin/webapp.js"
   },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
+  "dependencies": {
+    "@aws-cdk/aws-synthetics-alpha": "^2.1.0-alpha.0",
+    "aws-cdk-lib": "2.1.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.16"
   },
   "devDependencies": {
     "@types/jest": "^26.0.10",
@@ -19,10 +19,10 @@
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
   },
-  "dependencies": {
-    "@aws-cdk/aws-synthetics-alpha": "^2.1.0-alpha.0",
-    "aws-cdk-lib": "2.1.0",
-    "constructs": "^10.0.0",
-    "source-map-support": "^0.5.16"
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk",
+    "test": "jest",
+    "watch": "tsc -w"
   }
 }

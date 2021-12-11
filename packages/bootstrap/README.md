@@ -5,9 +5,14 @@ Account administration stack.
 The bootstrap layer comprises security essentials, and foundational continuous delivery infrastructure.
 
 - [Bootstrap](#bootstrap)
+  - [Architecture](#architecture)
   - [Responsibilities](#responsibilities)
   - [Pre requisites](#pre-requisites)
   - [Creating CI/CD](#creating-cicd)
+
+## Architecture
+
+![](diagram.png)
 
 ## Responsibilities
 
