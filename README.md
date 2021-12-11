@@ -46,12 +46,12 @@ It is good to set out with the correct components in place, and at a low cost, s
 
 ### Composition
 
-| Layer          | Privileges   | Users (If you are an Org of one, then you are all these users!) | Deployment                                                 | Description                                                                                                                              |
-| -------------- | ------------ | --------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Bootstrap      | Far too high | Root Account Admin                                              | You must provide credentials to a manual trigger in GitHub | This stack can create and update the OpenID Connect link with GitHub that ships all code, and creates all users.                         |
-| Base           | High         | Platform Teams, SecOps                                          | GitHub actions via OIDC assumed Role                       | A low-level cdk stack(s) for users, permission boundaries, formatting SSO permission sets and in general administrating your AWS estate. |
-| Infrastructure | Medium       | Architects, Engineering Managers and                            | GitHub actions via OIDC assumed Role                       | A mid-level cdk stack(s) for creating shared components such as cross account event buses, central data warehouses and DNS management.   |
-| Services       | Low          | Engineering                                                     | GitHub actions via OIDC assumed Role                       | A high-level stack(s) for creating products on top of the configured AWS estate                                                          |
+| Layer              | Privileges   | Users (If you are an Org of one, then you are all these users!) | Deployment                                                 | Description                                                                                                                              |
+| ------------------ | ------------ | --------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 1 -Bootstrap       | Far too high | Root Account Admin                                              | You must provide credentials to a manual trigger in GitHub | This stack can create and update the OpenID Connect link with GitHub that ships all code, and creates all users.                         |
+| 2 -Base            | High         | Platform Teams, SecOps                                          | GitHub actions via OIDC assumed Role                       | A low-level cdk stack(s) for users, permission boundaries, formatting SSO permission sets and in general administrating your AWS estate. |
+| 3 - Infrastructure | Medium       | Architects, Engineering Managers and                            | GitHub actions via OIDC assumed Role                       | A mid-level cdk stack(s) for creating shared components such as cross account event buses, central data warehouses and DNS management.   |
+| 4 - Services       | Low          | Engineering                                                     | GitHub actions via OIDC assumed Role                       | A high-level stack(s) for creating products on top of the configured AWS estate                                                          |
 
 ## Strong conventions
 

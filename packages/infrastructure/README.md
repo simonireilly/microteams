@@ -1,14 +1,12 @@
-# Welcome to your CDK TypeScript project!
+# Infrastructure
 
-This is a blank project for TypeScript development with CDK.
+Infrastructure stems from shared account concerns like VPC networking and DNS.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+This type of thing needs often to be configured once per account, to reduce costs for things such as NAT gateway.
 
-## Useful commands
+## Responsibilities
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+- Deploy infrastructure via the AWS CDK.
+- Provide cross stack exports for any dependencies.
+
+
