@@ -25,9 +25,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
-          cache: "yarn"
 
       - run: yarn install
 
-      - name: Synth boundary stack
+      - name: Synth infrastructure stack
         run: yarn --cwd packages/infrastructure cdk synth
+
+      - name: Deploy infrastructure stack
+        run: yarn --cwd packages/infrastructure cdk deploy --require-approval never
