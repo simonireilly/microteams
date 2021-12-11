@@ -1,8 +1,7 @@
-import { Duration, Stack } from 'aws-cdk-lib';
+import { CfnOutput, Duration, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import {
   OpenIdConnectPrincipal,
-  Policy,
   Role,
   OpenIdConnectProvider,
   ManagedPolicy,

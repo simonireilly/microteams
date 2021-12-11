@@ -1,17 +1,16 @@
 # Sample workflow to access AWS resources when workflow is tied to branch
 # The workflow Creates static website using aws s3
-name: OIDC Deploymentss
-on: push
+name: Deploy Infrastructure
+on: pull_request
 env:
   AWS_REGION: "eu-west-1"
 
-# permission can be added at job level or workflow level
 permissions:
   id-token: write
-  contents: read # This is required for actions/checkout@v1
+  contents: read
 
 jobs:
-  identity-test:
+  deploy-infrastructure:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
@@ -23,6 +22,13 @@ jobs:
           role-to-assume: arn:aws:iam::322567890963:role/github-ci-role
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Assert the role is correctly assumed
-        run: |
-          aws sts get-caller-identity
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          # Getting 500 so leaving commented out
+          # cache: "yarn"
+
+      - run: yarn install
+
+      - name: Synth boundary stack
+        run: yarn --cwd packages/infrastructure cdk synth

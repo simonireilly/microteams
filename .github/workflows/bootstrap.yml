@@ -1,0 +1,33 @@
+name: Bootstrap
+on:
+  workflow_dispatch:
+    inputs:
+      AWS_ACCESS_KEY_ID:
+        description: "Access Key with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        description: "Access Key with Permissions to deploy IAM, and OIDC"
+        required: true
+      AWS_REGION:
+        description: "Region to deploy to."
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v1
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ github.event.inputs.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ github.event.inputs.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ github.event.inputs.AWS_REGION }}
+
+      - name: Synth stack
+        run: yarn --cwd packages/bootstrap synth
+
+      - name: Deploy stack
+        run: yarn --cwd packages/bootstrap deploy --require-approval never
