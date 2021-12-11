@@ -6,6 +6,8 @@
 
 Micro-teams is a repo that highlights the organizational structure benefits of using the aws-cdk with GitHub OpenID Connect.
 
+![](./aws-estate.drawio.svg)
+
 It is designed around a tiered approach to AWS privileges, but with full transparency to the organisation, via the mono-repo.
 
 It also provides account level formatting functionality through the AWS CDK, to keep a single typescript tool chain and encourage cross team communication.

@@ -56,7 +56,7 @@ export class WebappStack extends Stack {
       title: 'Canary Alarm',
     });
 
-    const dashboard = new Dashboard(this, 'MainDashbaord', {
+    const dashboard = new Dashboard(this, 'MainDashboard', {
       dashboardName: 'Main-Dashboard',
       periodOverride: PeriodOverride.AUTO,
       widgets: [[alarmWidget]],
