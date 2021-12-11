@@ -2,7 +2,7 @@ name: CI
 on: push
 
 jobs:
-  identity-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
@@ -11,7 +11,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
-          cache: "yarn"
+          # Getting 500 so leaving commented out
+          # cache: "yarn"
 
       - run: yarn install
 
