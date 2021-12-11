@@ -2,26 +2,23 @@
 
 Account administration stack.
 
-The base layer comprises security essentials, and foundational continuous delivery infrastructure.
+The bootstrap layer comprises security essentials, and foundational continuous delivery infrastructure.
 
 - [Bootstrap](#bootstrap)
   - [Responsibilities](#responsibilities)
-  - [Getting Started](#getting-started)
-  - [Bootstrapping](#bootstrapping)
+  - [Pre requisites](#pre-requisites)
   - [Creating CI/CD](#creating-cicd)
 
 ## Responsibilities
 
-- IAM:
-  - Format Roles, Policies, Permissions and Users in each organizational unit.
+- Provide a secure way for github actions to assume a short lived role.
 
-## Getting Started
+## Pre requisites
 
-Create AWS account
-
-## Bootstrapping
-
-Setup SSO guide with control tower.
+- Create AWS account.
+  - You will need access keys to deploy the bootstrap
+  - I recommend that you follow aws control tower guided setup to create:
+    - A root account with a SSO and Control Tower management login.
 
 ## Creating CI/CD
 

@@ -2,7 +2,7 @@
 # The workflow Creates static website using aws s3
 name: OIDC Deploymentss
 on: push
-
+env:
   AWS_REGION: "eu-west-1"
 
 # permission can be added at job level or workflow level
