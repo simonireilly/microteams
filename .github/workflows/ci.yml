@@ -11,7 +11,7 @@ permissions:
   contents: read # This is required for actions/checkout@v1
 
 jobs:
-  S3PackageUpload:
+  identity-test:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
@@ -21,6 +21,21 @@ jobs:
         uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: arn:aws:iam::322567890963:role/github-ci-role
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Assert who the caller is
+        run: |
+          aws sts get-caller-identity
+  manual-identity-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v1
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          role-to-assume: arn:aws:iam::322567890963:role/manual-github-role
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Assert who the caller is

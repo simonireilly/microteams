@@ -18,7 +18,7 @@ export class GithubActionsStack extends Stack {
      */
     const provider = new OpenIdConnectProvider(this, 'MyProvider', {
       url: 'https://token.actions.githubusercontent.com',
-      clientIds: ['sts.amazonaws.com'],
+      clientIds: ['sts.amazonaws.com', 'https://github.com/simonireilly'],
     });
 
     /**
@@ -44,7 +44,7 @@ export class GithubActionsStack extends Stack {
       roleName: 'github-ci-role',
       maxSessionDuration: Duration.hours(1),
       managedPolicies: [
-        ManagedPolicy.fromAwsManagedPolicyName('AmazonS3FullAccess'),
+        ManagedPolicy.fromAwsManagedPolicyName('ReadOnlyAccess'),
       ],
     });
   }
