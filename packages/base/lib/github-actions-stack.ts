@@ -18,7 +18,7 @@ export class GithubActionsStack extends Stack {
      */
     const provider = new OpenIdConnectProvider(this, 'MyProvider', {
       url: 'https://token.actions.githubusercontent.com',
-      clientIds: ['sts.amazonaws.com', 'https://github.com/simonireilly'],
+      clientIds: ['sts.amazonaws.com'],
     });
 
     /**
@@ -28,8 +28,7 @@ export class GithubActionsStack extends Stack {
     const GitHubPrincipal = new OpenIdConnectPrincipal(provider).withConditions(
       {
         StringEquals: {
-          'token.actions.githubusercontent.com:sub':
-            'repo:simonireilly/microteams:*',
+          'token.actions.githubusercontent.com:sub': 'repo:*',
         },
       }
     );
