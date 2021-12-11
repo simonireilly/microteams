@@ -11,7 +11,7 @@ permissions:
   contents: read # This is required for actions/checkout@v1
 
 jobs:
-  identity-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
