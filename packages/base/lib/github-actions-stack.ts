@@ -29,7 +29,7 @@ export class GithubActionsStack extends Stack {
       {
         StringEquals: {
           'token.actions.githubusercontent.com:sub':
-            'repo:simonireilly/microteams:ref:refs/heads/*',
+            'repo:simonireilly/microteams:*',
         },
       }
     );
