@@ -11,9 +11,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
-          # Getting 500 so leaving commented out
-          # cache: "yarn"
 
       - run: yarn install
 
+      - run: yarn l build
+      - run: yarn l lint
       - run: yarn l test

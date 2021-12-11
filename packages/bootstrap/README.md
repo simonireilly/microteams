@@ -12,6 +12,7 @@ The bootstrap layer comprises security essentials, and foundational continuous d
 ## Responsibilities
 
 - Provide a secure way for github actions to assume a short lived role.
+- Create SSO permission sets to assign to the users within your AWS Organisation.
 
 ## Pre requisites
 
@@ -34,5 +35,6 @@ In this instance, we want ot use GitHub to deploy a lot of AWS CDK Applications.
 
 We first need to create a link between GitHub and the AWS Account using OpenID Connect.
 
+We till want to control this, so a GitHub action which is manually dispatched.
 
 
