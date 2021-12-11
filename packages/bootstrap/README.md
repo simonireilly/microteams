@@ -30,5 +30,9 @@ This stack uses OpenID Connect to issue temporary tokens with a grant of trust.
 
 You need to put the cart before the horse at some point in deploying your AWS estate, you cannot start from a full CI/CD process.
 
+In this instance, we want ot use GitHub to deploy a lot of AWS CDK Applications.
+
+We first need to create a link between GitHub and the AWS Account using OpenID Connect.
+
 
 

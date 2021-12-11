@@ -31,8 +31,7 @@ export class GithubActionsStack extends Stack {
     const GitHubPrincipal = new OpenIdConnectPrincipal(provider).withConditions(
       {
         StringLike: {
-          'token.actions.githubusercontent.com:sub':
-            'repo:simonireilly/microteams:*',
+          'token.actions.githubusercontent.com:sub': `repo:${githubOrganisation}/${repository}:*`,
         },
       }
     );
