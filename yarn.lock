@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@aws-cdk/aws-synthetics-alpha@^2.1.0-alpha.0":
+  version "2.1.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-synthetics-alpha/-/aws-synthetics-alpha-2.1.0-alpha.0.tgz#63f05f8a5b0409185d7482ab6e6b9c2e8ca88e34"
+  integrity sha512-BqPkO5B8RP6zAk1PL8pjUDk/OrTjKIdURiyTSmaWZPQ9TUrdqxasZbabpTI8wLksyelyzGdvPpqCVobtnfPxrA==
+
 "@aws-cdk/cfnspec@2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-2.1.0.tgz#ca9dbd08cbdd08f534ac5b45b3634b0f6c264f40"

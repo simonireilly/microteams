@@ -19,7 +19,8 @@
       "**/*"
     ],
     "packages": [
-      "packages/*"
+      "packages/*",
+      "packages/services/*"
     ]
   }
 }
