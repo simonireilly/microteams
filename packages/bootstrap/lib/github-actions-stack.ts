@@ -41,6 +41,9 @@ export class GithubActionsStack extends Stack {
     /**
      * Create a deployment role that has short lived credentials. The only
      * principal that can assume this role is the GitHub Open ID provider.
+     *
+     * This role is granted authority to assume aws cdk roles; which are created
+     * by the aws cdk v2.
      */
     new Role(this, 'GitHubActionsRole', {
       assumedBy: GitHubPrincipal,
