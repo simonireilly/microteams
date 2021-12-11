@@ -4,7 +4,11 @@
 
 >Find the git book version here: https://app.gitbook.com/s/PTLidBS6Vrblh1f6EYpk/
 
-Micro-teams is a repo that highlights the organizational structure benefits of using the aws-cdk to ship components or services, on top of shared infrastructure such as event streams. It also provides account level formatting functionality through the AWS CDK, to keep a single typescript tool chain and encourage cross team communication.
+Micro-teams is a repo that highlights the organizational structure benefits of using the aws-cdk with GitHub OpenID Connect.
+
+It is designed around a tiered approach to AWS privileges, but with full transparency to the organisation, via the mono-repo.
+
+It also provides account level formatting functionality through the AWS CDK, to keep a single typescript tool chain and encourage cross team communication.
 
 - [Micro Teams](#micro-teams)
   - [Using Micro teams](#using-micro-teams)
@@ -42,15 +46,12 @@ It is good to set out with the correct components in place, and at a low cost, s
 
 ### Composition
 
-- Base (Privileges High)
-  - A low-level cdk stack(s) for users, permission boundaries, creating CI credentials, formatting SSO permission sets and in general administrating your AWS estate.
-  - Management by platform teams, SecOps.
-- Shared (Privileges Medium)
-  - A mid-level cdk stack(s) for creating shared components such as cross account event buses, central data warehouses and DNS management.
-  - Management by architects, teams and engineering managers.
-- Services
-  - A high-level cdk stack(s) for creating feature components.
-  - Management delegated to empowered teams.
+| Layer          | Privileges   | Users (If you are an Org of one, then you are all these users!) | Deployment                                                 | Description                                                                                                                              |
+| -------------- | ------------ | --------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Bootstrap      | Far too high | Root Account Admin                                              | You must provide credentials to a manual trigger in GitHub | This stack can create and update the OpenID Connect link with GitHub that ships all code, and creates all users.                         |
+| Base           | High         | Platform Teams, SecOps                                          | GitHub actions via OIDC assumed Role                       | A low-level cdk stack(s) for users, permission boundaries, formatting SSO permission sets and in general administrating your AWS estate. |
+| Infrastructure | Medium       | Architects, Engineering Managers and                            | GitHub actions via OIDC assumed Role                       | A mid-level cdk stack(s) for creating shared components such as cross account event buses, central data warehouses and DNS management.   |
+| Services       | Low          | Engineering                                                     | GitHub actions via OIDC assumed Role                       | A high-level stack(s) for creating products on top of the configured AWS estate                                                          |
 
 ## Strong conventions
 
@@ -66,16 +67,11 @@ This really means you might bootstrap a project like:
 ```bash
 npm init --force
 
-yarn add --dev lerna typescript ts-jest @tsconfig/node14 syncpack
-
-touch README.md tsconfig.json
-
-yarn ts-jest config:init
+yarn add --dev lerna syncpack
 
 yarn lerna init --npm-client=yarn
 
-yarn syncpack format
-yarn syncpack fix-mismatches
+yarn syncpack format fix-mismatches
 ```
 
 Why? Convention, convention is others bringing well tested tools, with good documentation.
