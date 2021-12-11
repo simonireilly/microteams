@@ -1,10 +1,10 @@
-# Base
+# Bootstrap
 
 Account administration stack.
 
 The base layer comprises security essentials, and foundational continuous delivery infrastructure.
 
-- [Base](#base)
+- [Bootstrap](#bootstrap)
   - [Responsibilities](#responsibilities)
   - [Getting Started](#getting-started)
   - [Bootstrapping](#bootstrapping)

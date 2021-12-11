@@ -2,7 +2,7 @@
   "name": "base",
   "version": "0.1.0",
   "bin": {
-    "base": "bin/base.js"
+    "base": "bin/bootstrap.js"
   },
   "dependencies": {
     "aws-cdk-lib": "2.1.0",

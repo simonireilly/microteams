@@ -1,4 +1,4 @@
-import { Duration, Stack, StackProps } from 'aws-cdk-lib';
+import { Duration, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import {
   OpenIdConnectPrincipal,
@@ -7,10 +7,13 @@ import {
   OpenIdConnectProvider,
   ManagedPolicy,
 } from 'aws-cdk-lib/aws-iam';
+import { BaseAppProps } from '../bin/bootstrap';
 
 export class GithubActionsStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
+  constructor(scope: Construct, id: string, props: BaseAppProps) {
     super(scope, id, props);
+
+    const { githubOrganisation, repository } = props;
 
     /**
      * Create an Identity provider for GitHub inside your AWS Account. This

@@ -1,8 +1,8 @@
 # Sample workflow to access AWS resources when workflow is tied to branch
 # The workflow Creates static website using aws s3
-name: AWS example workflow
+name: OIDC Deploymentss
 on: push
-env:
+
   AWS_REGION: "eu-west-1"
 
 # permission can be added at job level or workflow level
@@ -17,11 +17,12 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v1
 
-      - uses: actions/setup-node@v2
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@master
         with:
-          node-version: "14"
-          cache: "yarn"
+          role-to-assume: arn:aws:iam::322567890963:role/github-ci-role
+          aws-region: ${{ env.AWS_REGION }}
 
-      - run: yarn install
-
-      - run: yarn l test
+      - name: Assert the role is correctly assumed
+        run: |
+          aws sts get-caller-identity
