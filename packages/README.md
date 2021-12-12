@@ -8,7 +8,7 @@ Enforced conventions.
 - [Conventions](#conventions)
   - [Packages](#packages)
     - [Bootstrap](#bootstrap)
-    - [Base](#base)
+    - [Boundaries](#boundaries)
     - [Infrastructure](#infrastructure)
     - [Services](#services)
 
@@ -20,7 +20,7 @@ Packages follow a hierarchy based on the level of permissions required.
 
 Configure SSO and OpenID Connect.
 
-### Base
+### Boundaries
 
 Create SSO permission sets, developer and support roles, and manage cross account access if required.
 

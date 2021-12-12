@@ -1,0 +1,92 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "BoundariesStack" {
+    subgraph "cluster-SubGraph.BoundariesStack" {
+      graph [
+        label = "BoundariesStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "BoundariesStack/DeveloperPermissionsSet" [
+        label = " SSO PERMISSIONSET",
+        fontsize = 12,
+      ];
+      "BoundariesStack/SupportPermissionsSet" [
+        label = " SSO PERMISSIONSET\nSupportPermissionsSet",
+        fontsize = 12,
+      ];
+      "BoundariesStack/IAMBoundary" [
+        label = " IAMBoundary",
+        fontsize = 12,
+        image = "/home/simon/.npm/_npx/b98735c91b702b55/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "BoundariesStack/ExampleUser" [
+        label = " ExampleUser",
+        fontsize = 12,
+        image = "/home/simon/.npm/_npx/b98735c91b702b55/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "BoundariesStack/GrantUserSSOAssignment" [
+        label = " SSO ASSIGNMENT",
+        fontsize = 12,
+      ];
+    }
+  }
+  "BoundariesStack/ExampleUser" -> "BoundariesStack/IAMBoundary" [
+    dir = "both",
+  ];
+  "BoundariesStack/GrantUserSSOAssignment" -> "BoundariesStack/DeveloperPermissionsSet" [
+    dir = "both",
+  ];
+  "BoundariesStack/GrantUserSSOAssignment" -> "BoundariesStack/ExampleUser" [
+    dir = "both",
+  ];
+}
