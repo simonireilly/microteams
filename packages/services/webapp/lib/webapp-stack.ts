@@ -33,7 +33,7 @@ export class WebappStack extends Stack {
     });
 
     const canary = new Canary(this, 'MyCanary', {
-      schedule: Schedule.rate(Duration.minutes(5)),
+      schedule: Schedule.rate(Duration.minutes(60)),
       test: Test.custom({
         code: Code.fromAsset(path.join(__dirname, 'canary')),
         handler: 'index.handler',

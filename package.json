@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "simon",
   "devDependencies": {
+    "husky": "^7.0.0",
     "lerna": "^4.0.0",
     "syncpack": "^5.8.15"
   },
@@ -12,7 +13,8 @@
   "private": "true",
   "scripts": {
     "fmt": "syncpack format fix-mismatches",
-    "l": "lerna run --stream"
+    "l": "lerna run --stream",
+    "prepare": "husky install"
   },
   "workspaces": {
     "nohoist": [
