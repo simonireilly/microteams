@@ -3,7 +3,14 @@
   "description": "Microteams cli for creating new microteams projects",
   "version": "0.0.0",
   "author": "simon <simonireilly@gmail.com>",
+  "bin": {
+    "microteams": "bin/cli.js"
+  },
   "bugs": "https://github.com/simonireilly/microteams/issues",
+  "dependencies": {
+
+    "hygen": "6.1.0"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -19,17 +26,11 @@
   ],
   "license": "MIT",
   "main": "bin/cli.js",
-  "bin": {
-    "microteams": "bin/cli.js"
-  },
   "publishConfig": {
     "registry": "https://registry.yarnpkg.com"
   },
   "repository": "simonireilly/microteams.git",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "dependencies": {
-    "hygen": "^6.1.0"
   }
 }
