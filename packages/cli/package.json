@@ -10,6 +10,13 @@
   "dependencies": {
     "hygen": "6.1.0"
   },
+  "devDependencies": {
+    "@swc/core": "1.2.126",
+    "@swc/jest": "0.2.15",
+    "@types/jest": "27.4.0",
+    "jest": "27.4.5",
+    "ts-jest": "27.1.2"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -31,12 +38,5 @@
   "repository": "simonireilly/microteams.git",
   "scripts": {
     "test": "jest"
-  },
-  "devDependencies": {
-    "@swc/core": "^1.2.126",
-    "@swc/jest": "^0.2.15",
-    "@types/jest": "^27.4.0",
-    "jest": "^27.4.5",
-    "ts-jest": "^27.1.2"
   }
 }
