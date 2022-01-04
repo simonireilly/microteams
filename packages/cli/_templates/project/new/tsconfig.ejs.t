@@ -1,3 +1,6 @@
+---
+to: <%= name %>/tsconfig.json
+---
 {
   "compilerOptions": {
     "target": "ES2018",

@@ -30,6 +30,13 @@
   },
   "repository": "simonireilly/microteams.git",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.126",
+    "@swc/jest": "^0.2.15",
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2"
   }
 }

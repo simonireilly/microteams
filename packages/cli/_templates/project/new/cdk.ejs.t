@@ -1,5 +1,8 @@
+---
+to: <%= name %>/cdk.json
+---
 {
-  "app": "npx ts-node --prefer-ts-exts bin/new.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/<%= name %>.ts",
   "watch": {
     "include": [
       "**"

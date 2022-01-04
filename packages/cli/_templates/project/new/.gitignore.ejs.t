@@ -1,3 +1,6 @@
+---
+to: <%= name %>/.gitignore
+---
 *.js
 !jest.config.js
 *.d.ts
