@@ -4,3 +4,4 @@
 yarn syncpack fix-mismatches
 yarn syncpack format
 yarn syncpack set-semver-ranges
+yarn
