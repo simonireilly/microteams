@@ -5,14 +5,16 @@
   "author": "simon",
   "devDependencies": {
     "lerna": "^4.0.0",
-    "syncpack": "^5.8.15"
+    "syncpack": "^5.8.15",
+    "husky": "^7.0.0"
   },
   "keywords": [],
   "license": "ISC",
   "private": "true",
   "scripts": {
     "fmt": "syncpack format fix-mismatches",
-    "l": "lerna run --stream"
+    "l": "lerna run --stream",
+    "prepare": "husky install"
   },
   "workspaces": {
     "nohoist": [
